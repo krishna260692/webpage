@@ -1,0 +1,20 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="new_project.*" />
+          <option value="new1.self" />
+          <option value="new.cx_Freeze" />
+          <option value="cx_Freeze" />
+          <option value="new.setup" />
+          <option value="new.Executable" />
+          <option value="fpdf.EPDF" />
+          <option value="myapp.models.User.objects" />
+          <option value="django.core.urlresolvers" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
