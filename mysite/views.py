@@ -28,10 +28,30 @@ def subscribe(request):
         subject = 'Welcome to DataFlair'
         message = 'Hope you are enjoying your Django Tutorials'
         recepient = str(sub['Email'].value())
-        send_mail(subject,
-            message, EMAIL_HOST_USER, [recepient], fail_silently = False)
+        send_mail(
+            subject,message, EMAIL_HOST_USER, [recepient], fail_silently = False)
         return render(request, 'success.html', {'recepient': recepient})
     return render(request, 'index.html', {'form':sub})
+
+
+
+
+def reachus(request):
+    if request.method == 'POST':
+        name = request.POST['fname']
+        lastname = request.POST['lname']
+        mycontact = request.POST['contact']
+        massage = request.POST['mycomment']
+
+        print(name,lastname,mycontact,massage)
+
+
+
+
+
+
+    return render(request, 'contacttwo.html')
+
 
 
 

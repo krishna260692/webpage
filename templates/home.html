@@ -1,7 +1,9 @@
-{% extends 'base.html ' %}
+{% extends 'base.html' %}
 
 {% block content %}
 {% load static %}
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--    style  tag start here-->
 <div>
@@ -9,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  background-color: white;
+  background-color: #99CCFF;
 }
 * {box-sizing: border-box}
 .mySlides1,  {display: none}
@@ -76,7 +78,9 @@ img {vertical-align: middle;}
     <h2 style="text-align:center; font-style: italic;font-size: 40px; font-family:  serif;">
 
 <img  width="80" height="80" src="{% static 'image/icon1.ico' %}">
-        intelogik</h2>
+        TALENTS TRAINING INSTITUTE
+        subventure of INTELOGIC
+    </h2>
 
 
 <div class="slideshow-container">
@@ -122,7 +126,7 @@ img {vertical-align: middle;}
      text-align: justify;
 
   font-family: serif;
-  background-color:  powderblue;
+  background-color:  white;
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
@@ -152,7 +156,7 @@ img {vertical-align: middle;}
 <!--     border: 1px solid gray;-->
 <!--     width: 750px;-->
      color: black;
-    background-color:  powderblue;
+    background-color:  white;
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
@@ -179,7 +183,7 @@ img {vertical-align: middle;}
 <!--     border: 1px solid gray;-->
 <!--     width: 750px;-->
      color: black;
-     background-color:  powderblue;
+     background-color:  white;
      padding-left:10px;
       padding-right:10px;
 
@@ -211,7 +215,7 @@ img {vertical-align: middle;}
 <!--     width: 800px;-->
 <!--     height:150px;-->
      color: black;
-    background-color:  powderblue;
+    background-color:  white;
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
@@ -238,7 +242,7 @@ img {vertical-align: middle;}
 
          border-left-style: solid;
          border-width: 3px;
-     background-color:  powderblue;
+     background-color:  white;
      padding-left:10px;
       padding-right:10px;
   ">
@@ -261,7 +265,7 @@ img {vertical-align: middle;}
     <p  style="font-family:serif;
      text-align: justify; color: black;
 
-     background-color: powderblue;
+     background-color: white;
      padding-left:10px;
       padding-right:10px;
 
@@ -285,7 +289,7 @@ img {vertical-align: middle;}
 
     <br>
     <hr>
-    <div style="border-style: solid; width: 450px; background-color: powderblue; margin-top: 50px; margin-left: 10px;">
+    <div style="border-style: solid; width: 450px; background-color: #808080; margin-top: 50px; margin-left: 10px;">
 
         <h3 style="padding-left:20px;
         font-family:serif;
@@ -294,26 +298,26 @@ img {vertical-align: middle;}
         margin-left:20px;
         margin-right:70px;
         color:white;
-        background-color:rgb(0, 76, 117);
+        background-color:#ff9933;
 
 ">Contact us for free Salesforce consulting</h3>
 
-        <form style="padding-left:20px; padding-bottom:20px; font-family:serif;  ">
-
+        <form  action=" " method="post" style="padding-left:20px; padding-bottom:20px; font-family:serif;  ">
+           {% csrf_token %}
             <label for="fname">First name:</label><br>
-             <input type="text" id="fname" name="fname" value="krishna"><br>
+             <input type="text" id="fname" name="fname" placeholder="krishna"><br>
 
             <label for="lname">Last name:</label><br>
-             <input type="text" id="lname" name="lname" value=""><br><br>
+             <input type="text" id="lname" name="lname" value="" placeholder="Lastname"><br><br>
 
              <label for="contact">Contact No:</label><br>
-             <input type="text" id="contact" name="lname" value=""><br><br>
+             <input type="text" id="contact" name="lname" placeholder="Contact"><br><br>
 
              <label for="email">Email:</label><br>
-             <input type="text" id="email" name="lname" value=""><br><br>
+             <input type="text" id="email" name="lname" placeholder="Email"><br><br>
 
              <label for="comment">Comment or Message:</label><br>
-             <input type="text" id="comment" name="lname" value=""><br><br>
+             <textarea type="text" id="comment" name="lname" placeholder="Write your Meaasage Here."></textarea><br><br>
 
              <input type="submit" value="Submit">
 
@@ -326,14 +330,22 @@ img {vertical-align: middle;}
 
 
     <div style="background-color:black">
-        <h2 style="text-align:center; color:white;">About Us
-        </h2>
-        <pre style="text-align:center; color:white">
+        <h5 style=" padding:5px; color:white;">About Us:-
+        </h5>
+        <pre style="color:white">
 
             Intelogik is a Indo-USA based leading IT company
-            which is specialized in Salesforce,
-            which provided 100s of successful end-to-end IT
-            solutions till date to numerous clients worldwide.
+            which is specialized in Salesforce,which provided
+            100s of successful end-to-end IT solutions till
+            date to numerous clients worldwide.
+        </pre>
+        <pre style="color:white;padding:5px;  "
+        ><h4>Address:-</h4>
+            ROOM NO 22, GROUND FLOOR, A MAIN
+            BALAJINAGAR, ANJINEYA TEMPLE ROAD
+            ITTAMADU, BSK 3RD STAGE, BANGALORE,
+            URBAN, KARNATAKA, 560085
+
         </pre>
     </div>
 
@@ -373,6 +385,4 @@ function showSlides(n, no) {
 
 
 
-{%endblock content %}
-<!--<img src="{% static 'image/Waterfall.jpg' %}" style="width:100% ,height: 300px;">-->
-<!--<img src="{% static 'image/Waterfall1.jpg' %}" style="width:100% ,height: 300px;">-->
+{% endblock content %}
