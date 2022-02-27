@@ -1,15 +1,16 @@
 from django.urls import path
-from .views import Home ,contact,subscribe ,reachus
+from .views import  homecontact,about,contactus
 
 
 
 
 urlpatterns = [
 
-    path('home', Home.as_view(), name='home'),
-    path('contact', contact, name='contact'),
-    path('subscribe', subscribe, name='subscribe'),
-    path('reachus', reachus, name='reachus'),
+    path('contactus', contactus, name='contactus'),
+    path('homecontact', homecontact, name='homecontact'),
+    path('about', about.as_view(), name='about'),
+
+
 
 
 

@@ -17,44 +17,23 @@
 body {
   background-color: #99CCFF;
 }
-* {box-sizing: border-box}
-.mySlides1,  {display: none}
-img {vertical-align: middle;}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
+.text-block {
   position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+
+  padding: 20px;
+
+
 }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
 
-/* On hover, add a grey background color */
-.prev:hover, .next:hover {
-  background-color: #f1f1f1;
-  color: black;
-}
+
+
 
 .h2css {
   text-align: center;
@@ -71,6 +50,7 @@ img {vertical-align: middle;}
 
 </style>
 </div>
+
 <!--    style  tag end here here-->
 
 <!--html part start here-->
@@ -78,32 +58,33 @@ img {vertical-align: middle;}
 <div>
 <!-- <img  width="100" height="100" src="{% static 'image/logo.jpeg' %}"-->
 <!-- style="margin-left: 10px; margin-top: 10px;">-->
+<!--    <img src="paris.jpg" class="float-start" alt="Paris" width="304" height="236"> -->
+<!--  <img src="paris.jpg" class="float-end" alt="Paris" width="304" height="236"> -->
 
-    <h2 style="text-align:center; font-style: italic;font-size: 40px; font-family:  serif;">
+                    <div>
+                        <div class="row">
+        <div class="col-sm-4">
+          <img  style="padding:5px" width="80" height="80" src="{% static 'image/icon1.ico' %}">
 
-<img  width="80" height="80" src="{% static 'image/icon1.ico' %}">
-        TALENTS TRAINING INSTITUTE
-        subventure of INTELOGIC
-    </h2>
+        </div>
+                <div class="col-sm-4" style="text-align:center; font-style: italic;font-size: 40px; font-family:  serif;">
+                  <h3>TALENTS TRAINING INSTITUTE
+                      subventure of INTELOGIK</h3>
+
+                     </div>
+
+      </div>
+                    </div>
 
 
-<div class="slideshow-container">
-  <div class="mySlides1">
-    <img src="{% static 'image/Waterfall.jpg' %}" style="width:100%">
+          <div class="container mt-3">
+            <img src="{% static 'image/ocean.jpg' %}" style="width:100%" ;  class="img-fluid">
 
-  </div>
+              <div class="text-block">
+                 <h4>Salesforce is an ocean</h4>
 
-  <div class="mySlides1">
-    <img src="{% static 'image/Waterfall1.jpg' %}" style="width:100%">
-  </div>
-
-  <div class="mySlides1">
-    <img src="{% static 'image/image.jpeg' %}" style="width:auto; height:auto">
-  </div>
-
-  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-</div>
+                </div>
+                </div>
 
 </div>
 <!-- html part end here-->
@@ -293,35 +274,37 @@ img {vertical-align: middle;}
 
     <br>
     <hr>
-    <div style="padding:5px" class="container-sm border;  bg-secondary text-white;" >
+
+ <div class="container-sm border;  bg-secondary text-white; " style="width:400px;padding:5px;
+     position: static ;margin: 5px ">
+
            <h3 class="bg-danger text-white; text-center">Contact us for free Salesforce consulting</h3>
 
 
 
-        <form  >
-
+        <form action="{% url 'homecontact' %}" method="post"  >
+            {% csrf_token %}
             <div class="mb-3 mt-3">
                   <label for="fname">First name:</label>
              <input class="form-control" type="text" id="fname" name="fname" placeholder="krishna">
             </div>
-
 
          <div class="mb-3 mt-3">   <label for="lname">Last name:</label>
              <input class="form-control" type="text" id="lname" name="lname" value="" placeholder="Lastname"></div>
 
             <div class="mb-3 mt-3">
                  <label for="contact">Contact No:</label>
-             <input class="form-control" type="text" id="contact" name="lname" placeholder="Contact">
+             <input class="form-control" type="text" id="contact" name="mycontact" placeholder="Contact">
             </div>
 
            <div class="mb-3 mt-3">
                  <label for="email">Email:</label>
-             <input class="form-control" type="email" id="email" name="lname" placeholder="Email">
+             <input class="form-control" type="email" id="email" name="mymail" placeholder="Email">
            </div>
 
           <div class="mb-3 mt-3">
                  <label for="comment">Comment or Message:</label>
-             <textarea class="form-control" type="text" id="comment" name="lname" placeholder="Write your Meaasage Here."></textarea>
+             <textarea class="form-control" type="text" id="comment" name="comment" placeholder="Write your Meaasage Here."></textarea>
           </div>
 
              <input class="btn btn-primary" type="submit" value="Submit">
@@ -329,24 +312,20 @@ img {vertical-align: middle;}
         </form>
     </div>
 
+    <hr>
 
-
-    <br>
-   <hr>
-
-
-    <div style="background-color:black">
+<div>
+      <div style="background-color:black" >
         <h5 style=" padding:5px; color:white;">About Us:-
         </h5>
-        <pre style="color:white">
+        <pre style="color:white" >
 
             Intelogik is a Indo-USA based leading IT company
             which is specialized in Salesforce,which provided
             100s of successful end-to-end IT solutions till
             date to numerous clients worldwide.
         </pre>
-        <pre style="color:white;padding:5px;  "
-        ><h4>Address:-</h4>
+        <pre style="color:white;padding:5px;"  > <h4>Address:-</h4>
             ROOM NO 22, GROUND FLOOR, A MAIN
             BALAJINAGAR, ANJINEYA TEMPLE ROAD
             ITTAMADU, BSK 3RD STAGE, BANGALORE,
@@ -354,6 +333,14 @@ img {vertical-align: middle;}
 
         </pre>
     </div>
+</div>
+
+
+
+
+
+
+
 
 
 
@@ -366,27 +353,27 @@ img {vertical-align: middle;}
 
 
 
-<script>
-var slideIndex = [1,1];
-var slideId = ["mySlides1"]
-showSlides(1, 0);
+<!--<script>-->
+<!--var slideIndex = [1,1];-->
+<!--var slideId = ["mySlides1"]-->
+<!--showSlides(1, 0);-->
 
 
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
-}
+<!--function plusSlides(n, no) {-->
+<!--  showSlides(slideIndex[no] += n, no);-->
+<!--}-->
 
-function showSlides(n, no) {
-  var i;
-  var x = document.getElementsByClassName(slideId[no]);
-  if (n > x.length) {slideIndex[no] = 1}
-  if (n < 1) {slideIndex[no] = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  x[slideIndex[no]-1].style.display = "block";
-}
-</script>
+<!--function showSlides(n, no) {-->
+<!--  var i;-->
+<!--  var x = document.getElementsByClassName(slideId[no]);-->
+<!--  if (n > x.length) {slideIndex[no] = 1}-->
+<!--  if (n < 1) {slideIndex[no] = x.length}-->
+<!--  for (i = 0; i < x.length; i++) {-->
+<!--     x[i].style.display = "none";-->
+<!--  }-->
+<!--  x[slideIndex[no]-1].style.display = "block";-->
+<!--}-->
+<!--</script>-->
 
 
 
