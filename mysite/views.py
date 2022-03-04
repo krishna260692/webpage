@@ -23,11 +23,16 @@ def contactus(request):
         subject="this is auto generated mail do not reply to this mail"
         from_email=settings.EMAIL_HOST_USER
 
-        msg=f"<h1>Please find below details of {name}</h1>" \
-            f"<h1><b> Name </b>: { name} </h1>" \
-            f"<h1><b>Email_id</b>: { toemail} </h1>" \
-            f"<h1><b>Contact_No</b>: { mycontact} </h1>" \
-            f"<h1><b>Message</b>: { message} </h1>"
+        msg=f"<h3 >Please find below details of {name}</h3>" \
+            f"<hr>"\
+            f"<h3><b> Name </b>: { name} </h3>" \
+            f"<hr>" \
+            f"<h3><b>Email_id</b>: { toemail} </h3>" \
+            f"<hr>" \
+            f"<h3><b>Contact_No</b>: { mycontact} </h3>" \
+            f"<hr>" \
+            f"<h3><b>Message</b>: { message} </h3>"\
+            f"<hr>" \
 
         to='krishna260692@gmail.com'
         msg = EmailMultiAlternatives(subject, msg, from_email, [to])
@@ -44,6 +49,7 @@ def contactus(request):
     return render(request, 'contactus.html')
 
 
+
 def homecontact(request):
     if request.method == 'POST':
         fname = request.POST['fname']
@@ -54,12 +60,18 @@ def homecontact(request):
         subject = "this is auto generated mail do not reply to this mail"
         from_email = settings.EMAIL_HOST_USER
 
-        msg = f"<h1>Please find below details of {fname}</h1>" \
-              f"<h1><b> Name </b>: {fname} </h1>" \
-              f"<h1><b> Name </b>: {lname} </h1>" \
-              f"<h1><b>Contact_no</b>: {mycontact} </h1>" \
-              f"<h1><b>E-mail</b>: {toemail} </h1>" \
-              f"<h1><b>Message</b>: {message} </h1>"
+        msg = f"<h3>Please find below details of {fname}</h3>" \
+              f"<hr>" \
+              f"<h3><b> Name </b>: {fname} </h3>" \
+              f"<hr>" \
+              f"<h3><b> Name </b>: {lname} </h3>" \
+              f"<hr>" \
+              f"<h3><b>Contact_no</b>: {mycontact} </h3>" \
+              f"<hr>" \
+              f"<h3><b>E-mail</b>: {toemail} </h3>" \
+              f"<hr>" \
+              f"<h3><b>Message</b>: {message} </h3>"\
+              f"<hr>" \
 
         to = 'krishna260692@gmail.com'
         msg = EmailMultiAlternatives(subject, msg, from_email, [to])
@@ -79,6 +91,12 @@ def homecontact(request):
 
 class about(TemplateView):
     template_name = "about.html"
+
+
+
+class phphome(TemplateView):
+    template_name = "php.html"
+
 
 
 

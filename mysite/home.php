@@ -7,8 +7,14 @@
 </head>
 <body>
 
-Welcome <?php echo $_GET["name"]; ?><br>
-Your email address is: <?php echo $_GET["email"]; ?>
+<?php
+$to = "krishan260692@gmail.com";
+$subject = "My subject";
+$txt = "Hello world!";
+$headers = "From: shyamkumar260692@gmail.com" . "\r\n";
+
+mail($to,$subject,$txt,$headers);
+?>
 
 </body>
 </html>

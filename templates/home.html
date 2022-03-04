@@ -15,21 +15,25 @@
 
 <style>
 body {
-  background-color: #99CCFF;
+  background-color: rgb(240, 240, 240);
 }
 
 
-.text-block {
+.top-left {
   position: absolute;
-  bottom: 0;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1;
+  top: 50%;
+  left: 50%;
+ background: rgba(0, 0, 0, 0.5);
+  color: white;
+    padding-left: 5px;
+     padding-right: 5px;
+    padding-top: 5px;
 
-  padding: 20px;
 
-
+font-family: Arial;
+  transform: translate(-50%, -50%);
 }
+
 
 
 
@@ -80,8 +84,8 @@ body {
           <div class="container mt-3">
             <img src="{% static 'image/ocean.jpg' %}" style="width:100%" ;  class="img-fluid">
 
-              <div class="text-block">
-                 <h4>Salesforce is an ocean</h4>
+              <div class="top-left">
+                 <pre>Salesforce is an ocean</pre>
 
                 </div>
                 </div>
@@ -104,19 +108,20 @@ body {
     </h2>
     <p style="
 <!--    border: 1px solid gray;-->
-     color: black;
+     color: #99CCFF;
 <!--      width: 750px;-->
 <!--     height: 150px;-->
      font-family: Verdana;
      text-align: justify;
 
   font-family: serif;
-  background-color:  white;
+  background-color:  rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
          border-width: 3px;
          border-color: black;
+
 
 }">
 
@@ -141,7 +146,7 @@ body {
 <!--     border: 1px solid gray;-->
 <!--     width: 750px;-->
      color: black;
-    background-color:  white;
+    background-color:  rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
@@ -168,7 +173,7 @@ body {
 <!--     border: 1px solid gray;-->
 <!--     width: 750px;-->
      color: black;
-     background-color:  white;
+     background-color:  rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
 
@@ -200,7 +205,7 @@ body {
 <!--     width: 800px;-->
 <!--     height:150px;-->
      color: black;
-    background-color:  white;
+    background-color:  rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
       border-left-style: solid;
@@ -227,7 +232,7 @@ body {
 
          border-left-style: solid;
          border-width: 3px;
-     background-color:  white;
+     background-color:  rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
   ">
@@ -250,7 +255,7 @@ body {
     <p  style="font-family:serif;
      text-align: justify; color: black;
 
-     background-color: white;
+     background-color: rgb(240, 240, 240);
      padding-left:10px;
       padding-right:10px;
 

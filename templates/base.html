@@ -9,14 +9,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.mobile-container {
 
-  margin: auto;
-  background-color: #555;
-
-  color: white;
-  border-radius: 10px;
-}
 
 .topnav {
   overflow: hidden;
@@ -32,7 +25,7 @@ body {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
   display: block;
 }
 
@@ -44,15 +37,16 @@ body {
   top: 0;
 }
 
-.topnav a:hover {
-  background-color: #9cb3d1;
-  color: black;
-}
 
 .active {
   background-color: #04AA6D;
   color: white;
 }
+.icon-bar a:hover {
+  background-color: skyblue;
+}
+
+
 
 
 
@@ -60,39 +54,29 @@ body {
 </head>
 <body>
 
-<!-- Simulate a smartphone / tablet -->
-<div class="mobile-container">
+
+
 
 <!-- Top Navigation Menu -->
-<div class="topnav">
-  <a href="{% url 'home' %}" class="active" style="text-transform: uppercase;color: black;font-family:  serif;
-   text-align: left;
-  font-weight: bold;
-  color:white;
-  font-style: serif;">HOME</a>
-  <div id="myLinks">
+<div class="topnav icon-bar" >
+  <a href="{% url 'home' %}" class="active" ><i class="fa fa-home"></i></a>
 
-    <a href="{% url 'contactus' %}">Contact Us</a>
-    <a href="{% url 'about' %}">About us</a>
+      <div id="myLinks">
 
+        <a href="{% url 'contactus' %}">Contact Us</a>
+        <a href="{% url 'about' %}">About us</a>
+          <a href="{% url 'phphome' %}">reach us</a>
 
-
-
-  </div>
+      </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
 
-<div style="padding-left:16px">
 
-
-
-
-</div>
 
 <!-- End smartphone / tablet look -->
-</div>
+
 
 <script>
 function myFunction() {
