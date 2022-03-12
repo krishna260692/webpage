@@ -6,6 +6,8 @@ from django.conf import settings
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from jinja2 import Environment
+
 
 
 
@@ -123,12 +125,13 @@ def newhome(request):
         name = request.POST['fname']
         tomail= request.POST['emailid']
         mycontact = request.POST['contact']
+        mymessage = request.POST['mycomment']
 
 
         login_id = "shyamkumar260692@gmail.com"
         password = "7488812379"
 
-        # tomail = "krishna260692@gmail.com"
+
 
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.login(login_id, password)
@@ -140,41 +143,56 @@ def newhome(request):
         message["To"] = tomail
         message["Subject"] = subject
 
-        html = """\
+
+        html = """
+        
+        
     
         <div style=" text-align: left; "> 
+        
+        <h4> Dear Krishna Kumar </h4>
+        <h5> Please find below details of {{myname}}:- </h5>
+        
+        
         <table style="padding:10px; border: 1px solid #dddddd;border-color:black;">
           <tr>
-            <th>Please find below details:-</th>
+            <th> </th>
     
           </tr>
-          <tr style="background-color: gray;">
+          <tr style="background-color: #dddddd; color:green">
             <td>Name:-</td>
-            <td>krishna kumar  </td>
+            <td>{{myname}}  </td>
     
           </tr>
-          <tr style="background-color:lightgray ;">
+          <tr style="background-color:white ; color:green">
             <td>Contact_No:-</td>
-            <td>7979797979</td>
+            <td>{{contact}}</td>
     
           </tr>
-          <tr style="background-color:Tomato;">
+          <tr style="background-color:#dddddd;color:green;">
             <td>Email_Id:-</td>
-            <td>krishna260692@gmail.com</td>
+            <td>{{mymail}} </td>
     
           </tr>
-          <tr style="background-color:lightgray ;">
+          <tr style="background-color:white ; color:green;">
             <td>Message:- </td>
-            <td>hello krishna</td>
+            <td>{{tomessage}}</td>
     
           </tr>
     
         </table>
-        </div>
+         </div>
+         <div>
+        <h4> Cheers! </h4>
+        <h5> krishna kumar </h5>
+        
+            </div>
         """
 
-        part = MIMEText(html, "html")
+        part = MIMEText(Environment().from_string(html).render(contact=mycontact,myname=name,mymail=tomail,tomessage=mymessage ),"html")
+        # part = MIMEText(html, "html")
         message.attach(part)
+
         server.sendmail(login_id, "krishna260692@gmail.com", message.as_string())
         server.quit()
         return render(request, 'success.html')
