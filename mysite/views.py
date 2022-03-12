@@ -1,12 +1,11 @@
 from django.views.generic import TemplateView
-from django.core.mail import send_mail, BadHeaderError ,EmailMultiAlternatives
+from django.core.mail import send_mail ,EmailMultiAlternatives
 from django.shortcuts import render
 from django.conf import settings
-from . import forms
-from website.settings import EMAIL_HOST_USER
-from django.core.mail import send_mass_mail
-from django.http import HttpResponse, HttpResponseRedirect
-from django.core.mail import EmailMessage
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 
@@ -96,6 +95,94 @@ class about(TemplateView):
 
 class phphome(TemplateView):
     template_name = "php.html"
+
+
+
+# def newhome(request):
+
+    # email = "krishna260692@gmail.com"
+    # subject = "this is new try"
+    # content = "is this working"
+    #
+    # port = 465
+    # smtp_server_domain_name = "smtp.gmail.com"
+    # sender_mail = "shyamkumar260692@gmail.com"
+    # password = "7979747428"
+    #
+    # ssl_context = ssl.create_default_context()
+    # service = smtplib.SMTP_SSL(smtp_server_domain_name, port, context=ssl_context)
+    # service.login(sender_mail, password)
+    #
+    #
+    # service.sendmail(sender_mail, email, f"Subject: {subject}\n{content}")
+    #
+    # service.quit()
+
+def newhome(request):
+    if request.method == 'POST':
+        name = request.POST['fname']
+        tomail= request.POST['emailid']
+        mycontact = request.POST['contact']
+
+
+        login_id = "shyamkumar260692@gmail.com"
+        password = "7488812379"
+
+        # tomail = "krishna260692@gmail.com"
+
+        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server.login(login_id, password)
+
+        subject = "new mail"
+
+        message = MIMEMultipart()
+        message["From"] = login_id
+        message["To"] = tomail
+        message["Subject"] = subject
+
+        html = """\
+    
+        <div style=" text-align: left; "> 
+        <table style="padding:10px; border: 1px solid #dddddd;border-color:black;">
+          <tr>
+            <th>Please find below details:-</th>
+    
+          </tr>
+          <tr style="background-color: gray;">
+            <td>Name:-</td>
+            <td>krishna kumar  </td>
+    
+          </tr>
+          <tr style="background-color:lightgray ;">
+            <td>Contact_No:-</td>
+            <td>7979797979</td>
+    
+          </tr>
+          <tr style="background-color:Tomato;">
+            <td>Email_Id:-</td>
+            <td>krishna260692@gmail.com</td>
+    
+          </tr>
+          <tr style="background-color:lightgray ;">
+            <td>Message:- </td>
+            <td>hello krishna</td>
+    
+          </tr>
+    
+        </table>
+        </div>
+        """
+
+        part = MIMEText(html, "html")
+        message.attach(part)
+        server.sendmail(login_id, "krishna260692@gmail.com", message.as_string())
+        server.quit()
+        return render(request, 'success.html')
+
+
+
+
+
 
 
 
